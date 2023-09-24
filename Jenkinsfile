@@ -7,5 +7,11 @@ pipeline {
       }
     }
 
+    stage('listing the dir') {
+      steps {
+        sh 'ls -la '
+      }
+    }
+
   }
 }
