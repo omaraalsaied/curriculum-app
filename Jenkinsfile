@@ -8,19 +8,14 @@ pipeline {
     }
 
     stage('listing the dir') {
-      parallel {
-        stage('listing the dir') {
-          steps {
-            sh 'ls -la '
-          }
-        }
+      steps {
+        sh 'npm cache clear --force'
+      }
+    }
 
-        stage('Front-end Unit Tests') {
-          steps {
-            sh 'cd curriculum-front && npm i && npm run test:unit'
-          }
-        }
-
+    stage('testing frontend') {
+      steps {
+        sh 'cd curriculum-front && npm i && npm run test:unit'
       }
     }
 
